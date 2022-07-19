@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import { Button } from "./CreateTodo";
-import {useAppSelector} from "../hooks";
+import {useAppSelector, useAppDispatch} from "../hooks";
+import {markAll, deleteMarked} from "../reducers";
 
 const TodoListStyled = styled.ul`
   display: flex;
@@ -12,25 +13,7 @@ const TodoListStyled = styled.ul`
 
 const TodoList = (): JSX.Element | null => {
     const todosArray = useAppSelector( store => store.todos.todosArray);
-    // const deleteHandler = (id: string) => {
-    //     props.handleDelete(id);
-    // }
-    //
-    // const deleteMarkedHandler = () => {
-    //     props.handleDeleteMarked();
-    // }
-    //
-    // const checkboxHandler = (id: string) => {
-    //     props.handleCheckbox(id);
-    // }
-
-    // const editHandler = (id: string, newContent: string) => {
-    //     props.handleEdit(id, newContent);
-    // }
-
-    // const markAllHandler = () => {
-    //     props.handleMarkAll();
-    // }
+    const dispatch = useAppDispatch();
 
     return (
         !todosArray.length ? null :
@@ -44,8 +27,8 @@ const TodoList = (): JSX.Element | null => {
                         />
                     ))
                 }
-                <Button>Delete marked</Button>
-                <Button>Mark all</Button>
+                <Button onClick={() => dispatch(deleteMarked())}>Delete marked</Button>
+                <Button onClick={() => dispatch(markAll())}>Mark all</Button>
             </TodoListStyled>
     )
 }
