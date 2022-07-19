@@ -1,0 +1,18 @@
+@import "assets/fonts/FuturaPTMedium.css";
+
+* {
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'FuturaPTWebMedium';
+  font-size: 25px;
+}
+
+.checked p {
+  text-decoration: line-through;
+}
+
+.checked {
+  opacity: .3;
+}
