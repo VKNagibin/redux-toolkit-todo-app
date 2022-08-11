@@ -12,26 +12,6 @@ const TodoListStyled = styled.ul`
 
 const TodoList = (): JSX.Element | null => {
     const todosArray = useAppSelector( store => store.todos.todosArray);
-    // const deleteHandler = (id: string) => {
-    //     props.handleDelete(id);
-    // }
-    //
-    // const deleteMarkedHandler = () => {
-    //     props.handleDeleteMarked();
-    // }
-    //
-    // const checkboxHandler = (id: string) => {
-    //     props.handleCheckbox(id);
-    // }
-
-    // const editHandler = (id: string, newContent: string) => {
-    //     props.handleEdit(id, newContent);
-    // }
-
-    // const markAllHandler = () => {
-    //     props.handleMarkAll();
-    // }
-
     return (
         !todosArray.length ? null :
             <TodoListStyled>
